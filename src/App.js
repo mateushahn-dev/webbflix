@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import db from './db';
+import Header from './components/Header';
+import Banner from './components/Banner';
+import Lists from './components/Lists';
+import Footer from './components/Footer';
+import Loading from './components/Loading';
 
 function App() {
+  const [movies, setMovies] = useState([]);
+  const [datas, setDatas] = useState([]);
+  const [blacHeader, setBlackHeader] = useState(false);
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+        const data = await db.getMovies();
+        setMovies(data);
+
+        const original = data.filter((list) => list.slug === 'originals');
+        const number = Math.floor(Math.random() * (original[0].items.results.length));
+        const movie = original[0].items.results[number];
+
+        const info = await db.getInfos(movie.id, 'tv');
+        setDatas(info);
+    };
+
+    fetchMovies();
+  }, []);
+
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 10) {
+        setBlackHeader(true);
+      } else {
+        setBlackHeader(false);
+      }
+    }
+
+    window.addEventListener('scroll', scrollListener);
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header black={blacHeader} />
+      <Banner datas={datas} />
+      <Lists movies={movies} />
+      <Footer />
+      {movies.length === 0 && <Loading /> || datas.length === 0 && <Loading />}
+    </>
   );
 }
 

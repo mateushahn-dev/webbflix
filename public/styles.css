@@ -1,0 +1,440 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Almarai:wght@300&family=Gowun+Dodum&family=Grape+Nuts&family=Kanit:wght@200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lilita+One&family=Lobster&family=Mochiy+Pop+One&family=Modak&family=Montserrat:wght@200&family=Open+Sans:wght@300..800&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=Protest+Guerrilla&family=Quicksand:wght@300&family=Rakkas&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:wght@100&family=Rubik+Bubbles&family=Rubik:wght@300&family=Shantell+Sans:ital,wght,BNCE@0,300..800,6;1,300..800,6&family=Sixtyfour&family=Titan+One&family=Ubuntu&family=Yantramanav:wght@100;300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #111;
+    color: #fff;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* -------HEADER----- */
+
+header {
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: transparent;
+    transition: all ease-in 600ms;
+}
+
+.logo img, .user img {
+    height: 3rem;
+}
+
+.user img {
+    border-radius: 50px;
+}
+
+/* -------BANNER----- */
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+
+.banner .linear {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #111 20%, transparent 80%);
+}
+
+.banner figcaption {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #111 15%, transparent 85%);
+    padding: 180px 20px;
+}
+
+.banner .title {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    max-width: 90vw;
+}
+
+.banner .title h1 {
+    width: 90vw;
+}
+
+.banner .infos {
+    display: flex;
+    gap: 20px;
+    font-size: 1.1rem;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: bolder;
+}
+
+.banner .infos .rating {
+    background-color: green;
+    padding: 3px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: cnter;
+}
+
+.banner .description {
+    font-size: 1rem;
+    color: #c2c2c2;
+    margin-block: 20px 10px;
+    max-width: 650px;
+}
+.banner .buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.watch {
+    background-color: #fff;
+    color: #111;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: 300ms;
+}
+
+.add {
+    background-color: #333;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: 200ms;
+}
+
+.add:hover, .watch:hover {
+    opacity: 0.6;
+}
+
+.genres span {
+    color: #c2c2c2;
+}
+
+/* -------MOVIES----- */
+
+.lists {
+    padding: 0 0 20px 20px;
+    margin-top: -210px;
+}
+
+.list {
+    padding-block: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.list h2 {
+    margin-bottom: 10px;
+}
+
+.list-items {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.list-items-carousel {
+    display: flex;
+    transition: 1.1s;
+}
+
+.item {
+    transform: scale(0.9);
+    transition: 400ms;
+}
+
+.item:hover {
+    transform: scale(1.02);
+}
+
+.item img {
+    height: 220px;
+    width: 150px;
+}
+
+.buttons-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 0;
+    width: 100%;
+}
+
+.left, .right {
+    position: relative;
+    padding: 10px;
+    height: 180px;
+    width: 30px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    transition: 800ms;
+    cursor: pointer;
+    opacity: 0;
+    overflow-x: hidden;
+}
+
+.left {
+    left: 0;
+    top: 110px;
+}
+
+.right {
+    right: 0;
+    top: 110px;
+}
+
+.list:hover .left, .list:hover .right {
+    opacity: 1;
+}
+
+/* -------FOOTER----- */
+
+footer {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0px 40px 40px;
+}
+
+/*-------LOADING-------*/
+
+.loading {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+}
+
+/*-------MEDIA QUERIES WIDTH-------*/
+
+@media (max-width: 1000px) {
+    .banner .title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 775px) {
+    .banner .title {
+        font-size: 1.8rem;
+    }
+
+    .banner .infos, .banner .genres {
+        font-size: 0.9rem;
+    }
+
+    .banner .description {
+        font-size: 0.8rem;
+    }
+
+    .left, .right {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 665px) {
+    .banner .title {
+        font-size: 1.7rem;
+    }
+
+    header {
+        height: 5rem;
+    }
+
+    .logo img, .user img {
+        height: 2rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .banner .title {
+        font-size: 1.5rem;
+    }
+
+    .banner .infos, .banner .genres {
+        font-size: 0.75rem;
+    }
+
+    .banner .description {
+        font-size: 0.7rem;
+    }
+
+    .watch, .add {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .list h2 {
+        font-size: 1.2rem;
+    }
+
+    .lists {
+        margin-top: -190px;
+    }
+}
+
+@media (max-width: 400px) {
+    .lists {
+        margin-top: -150px;
+    }
+
+    .banner .title {
+        font-size: 1.3rem;
+    }
+}
+
+/*-------MEDIA QUERIES HEIGHT-------*/
+
+@media (max-height: 710px) {
+    .banner figcaption {
+        padding-block: 120px;
+    }
+}
+
+@media (max-height: 650px) {
+    .banner figcaption {
+        padding-block: 100px;
+    }
+
+    .banner .title {
+        font-size: 1.8rem;
+    }
+
+    .banner .infos, .banner .genres {
+        font-size: 0.9rem;
+    }
+
+    .banner .description {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-height: 620px) {
+    .banner .title {
+        font-size: 1.5rem;
+    }
+
+    .banner .infos, .banner .genres {
+        font-size: 0.75rem;
+    }
+
+    .banner .description {
+        font-size: 0.7rem;
+    }
+
+    .watch, .add {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .list h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-height: 520px) {
+    .banner figcaption {
+        padding-block: 80px;
+    }
+
+    header {
+        height: 4.5rem;
+    }
+
+    .logo img, .user img {
+        height: 2rem;
+    }
+}
+
+@media (max-height: 490px) {
+    .lists {
+        margin-top: -160px;
+    }
+}
+
+@media (max-height: 450px) {
+    .lists {
+        margin-top: -120px;
+    }
+}
+
+@media (max-height: 400px) {
+    .lists {
+        margin-top: -80px;
+    }
+}
+
+@media (max-height: 360px) {
+    .banner .title {
+        margin-bottom: 0;
+    }
+
+    .banner .infos {
+        margin-bottom: 0;
+    }
+
+    .banner .description {
+        margin-block: 5px;
+    }
+
+    .banner .buttons {
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-height: 330px) {
+    .list h2 {
+        font-size: 1rem;
+    }
+
+    .banner .title {
+        font-size: 1.4rem;
+    }
+
+    .banner .buttons {
+        gap: 10px;
+    }
+
+    .watch, .add {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+    }
+}
