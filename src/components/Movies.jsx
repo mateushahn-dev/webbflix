@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
-import NavigateBeforeIcons from '@material-ui/icons/NavigateBefore';
-import NavigateNextIcons from '@material-ui/icons/NavigateNext';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faCaretLeft} from '@fortawesome/free-solid-svg-icons';
+import { faCaretRight } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function Movies({ title, items }) {
   const [scrollX, setScrollX] = useState(0);
@@ -25,10 +27,10 @@ export default function Movies({ title, items }) {
       <h2 className='list-title'>{title}</h2>
       <div className='buttons-control'>
         <div className='left' onClick={left}>
-          <NavigateBeforeIcons style={{ fontSize: 40 }} />
+          <FontAwesomeIcon icon={faCaretLeft} style={{ fontSize: 33 }} />
         </div>
         <div className='right' onClick={right}>
-          <NavigateNextIcons style={{ fontSize: 40 }} />
+          <FontAwesomeIcon icon={faCaretRight} style={{ fontSize: 33 }} />
         </div>
       </div>
       <div className='list-items'>
